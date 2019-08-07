@@ -7,9 +7,6 @@ rvm:
   - jruby-9.2.6.0
   - ruby-head
   - ruby-head-clang
-  - 2.0.0
-  - 2.1.10
-  - 2.2.10
   - 2.3.8
   - 2.4.6
   - 2.5.5
@@ -21,8 +18,11 @@ matrix:
   allow_failures:
     - rvm: ruby-head
     - rvm: ruby-head-clang
+    - rvm: jruby-9.0.5.0
   fast_finish: true
 before_install:
   - gem update bundler
-#   - apt-get update
-#   - apt-get install idn
+addons:
+  apt:
+    packages:
+    - libidn11-dev
